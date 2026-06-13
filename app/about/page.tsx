@@ -10,8 +10,8 @@ const links = [
   },
   {
     label: "Medium",
-    display: "medium.com/@macs-hit",
-    href: "https://medium.com/@macs-hit",
+    display: "medium.com/@Real-macs_hit",
+    href: "https://medium.com/@Real-macs_hit",
   },
 ];
 

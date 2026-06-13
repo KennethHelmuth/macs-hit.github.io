@@ -32,7 +32,7 @@ export default async function ReportsPage() {
               <p className="empty-sub">
                 Follow on{" "}
                 <a
-                  href="https://medium.com/@macs-hit"
+                  href="https://medium.com/@Real-macs_hit"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
