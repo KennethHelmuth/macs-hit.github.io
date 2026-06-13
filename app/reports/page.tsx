@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Reports",
   description:
-    "Threat intelligence reports published by MACS-HIT. Technical analysis of threats, campaigns, and malware.",
+    "Threat intelligence reports published by MACS-HIT.",
 };
 
-// Reports are read from the content/reports directory at build time.
-// When reports exist, each will be a .mdx file with frontmatter:
-//   title, date, tlp, tags, summary
-// Until then, the empty state is shown.
-
 async function getReports() {
-  // In production, this would read MDX files from content/reports/
-  // Returning empty array until reports are published.
+  // Reads from content/reports/ at build time when reports exist.
   return [];
 }
 
@@ -21,37 +16,35 @@ export default async function ReportsPage() {
   const reports = await getReports();
 
   return (
-    <div className="page-sm">
+    <div className="page">
       <div className="container">
-        {/* Header */}
-        <div style={{ marginBottom: "40px" }}>
-          <p className="label" style={{ marginBottom: "10px" }}>
-            Intelligence Reports
-          </p>
-          <h1>Reports</h1>
-        </div>
+        <Reveal>
+          <header className="page-header">
+            <p className="page-eyebrow">Intelligence Reports</p>
+            <h1 className="page-title">Reports</h1>
+          </header>
+        </Reveal>
 
-        {/* Feed */}
         {reports.length === 0 ? (
-          <div className="empty-state">
-            <p className="empty-state-title">No reports published yet.</p>
-            <p className="empty-state-sub">
-              Check back later or follow on{" "}
-              <a
-                href="https://medium.com/@macs-hit"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent)" }}
-              >
-                Medium
-              </a>{" "}
-              for updates.
-            </p>
-          </div>
+          <Reveal delay={120}>
+            <div className="empty">
+              <p className="empty-headline">No reports published yet.</p>
+              <p className="empty-sub">
+                Follow on{" "}
+                <a
+                  href="https://medium.com/@macs-hit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Medium
+                </a>{" "}
+                for updates when research is ready.
+              </p>
+            </div>
+          </Reveal>
         ) : (
           <div>
-            {/* Report items will render here once MDX files are added */}
-            {/* Each report: title, date, tlp, summary, tags */}
+            {/* Report list renders here when MDX files exist */}
           </div>
         )}
       </div>

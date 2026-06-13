@@ -1,121 +1,83 @@
 "use client";
 
+import Reveal from "@/components/Reveal";
+
 const links = [
   {
     label: "GitHub",
+    display: "github.com/kennethhelmuth",
     href: "https://github.com/kennethhelmuth",
   },
   {
     label: "Medium",
+    display: "medium.com/@macs-hit",
     href: "https://medium.com/@macs-hit",
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="page-sm">
+    <div className="page">
       <div className="container">
         {/* Header */}
-        <div style={{ marginBottom: "40px" }}>
-          <p className="label" style={{ marginBottom: "10px" }}>
-            Operator
-          </p>
-          <h1>Kenneth Helmuth</h1>
-        </div>
+        <Reveal>
+          <header className="page-header">
+            <p className="page-eyebrow">Operator</p>
+            <h1 className="page-title">Kenneth Helmuth</h1>
+          </header>
+        </Reveal>
 
         {/* Bio */}
-        <div style={{ marginBottom: "48px" }}>
-          <p
-            style={{
-              fontSize: "0.9rem",
-              color: "var(--text-secondary)",
-              lineHeight: 1.75,
-              maxWidth: "520px",
-              marginBottom: "16px",
-            }}
-          >
-            CTI researcher. MACS-HIT is an independent research platform — not affiliated
-            with any vendor, employer, or organization. Research is published when it is
-            ready and defensible.
-          </p>
-          <p
-            style={{
-              fontSize: "0.9rem",
-              color: "var(--text-secondary)",
-              lineHeight: 1.75,
-              maxWidth: "520px",
-            }}
-          >
-            All analysis represents personal opinion based on available evidence at
-            the time of publication. Attribution assessments carry inherent uncertainty
-            and should be treated as such.
-          </p>
-        </div>
+        <Reveal delay={100}>
+          <div style={{ marginBottom: 80 }}>
+            <p className="about-bio">
+              CTI researcher. <strong>MACS-HIT</strong> is an independent
+              research platform — not affiliated with any vendor, employer,
+              or organization.
+            </p>
+            <p className="about-bio">
+              Research is published when it is ready and defensible.
+              Attribution assessments carry inherent uncertainty and should
+              be treated as such.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Links */}
-        <div>
-          <p className="label" style={{ marginBottom: "16px" }}>
-            Links
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            {links.map(({ label, href }) => (
-              <div key={label} className="item-row" style={{ padding: "14px 0" }}>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.72rem",
-                    color: "var(--text-muted)",
-                    width: "80px",
-                    flexShrink: 0,
-                  }}
-                >
-                  {label}
-                </span>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: "0.84rem",
-                    color: "var(--text-secondary)",
-                    transition: "color 0.15s",
-                    wordBreak: "break-all",
-                  }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLElement).style.color = "var(--text)")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLElement).style.color =
-                      "var(--text-secondary)")
-                  }
-                >
-                  {href.replace("https://", "")}
-                </a>
-              </div>
+        <Reveal delay={180}>
+          <div style={{ marginBottom: 80 }}>
+            {links.map(({ label, display, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about-link-row"
+                style={{ display: "flex" }}
+              >
+                <span className="about-link-label">{label}</span>
+                <span className="about-link-url">{display}</span>
+              </a>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Disclaimer */}
-        <div
-          style={{
-            marginTop: "48px",
-            paddingTop: "24px",
-            borderTop: "1px solid var(--border)",
-          }}
-        >
+        <Reveal delay={240}>
           <p
             style={{
-              fontSize: "0.78rem",
-              color: "var(--text-muted)",
-              lineHeight: 1.6,
-              maxWidth: "480px",
+              fontSize: "0.82rem",
+              color: "var(--text-3)",
+              lineHeight: 1.65,
+              maxWidth: 440,
+              letterSpacing: "-0.005em",
             }}
           >
-            All content published on this platform is for educational and defensive
-            purposes. Do not take action based solely on material published here.
+            All content published on this platform is for educational and
+            defensive purposes. Do not take action based solely on material
+            published here.
           </p>
-        </div>
+        </Reveal>
       </div>
     </div>
   );
