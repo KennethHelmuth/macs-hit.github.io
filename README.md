@@ -1,81 +1,68 @@
-# MACS-HIT — Cyber Threat Intelligence Platform
+# MACS-HIT
 
-> Open-source CTI research by Kenneth Helmuth · [macs-hit.github.io](https://macs-hit.github.io)
+Independent threat intelligence research platform operated by Kenneth Helmuth.
 
-A professional threat intelligence platform tracking APT groups, malware campaigns, and adversarial infrastructure.
+**Live:** https://kennethhelmuth.github.io/macs-hit.github.io
 
-## Tech Stack
+---
 
-- **Framework**: Next.js 16 (App Router) with static export
-- **Styling**: Tailwind CSS v4 + custom design system
-- **Content**: MDX for reports and dossier posts
-- **Deploy**: GitHub Pages via GitHub Actions
+## Stack
 
-## Pages
+- Next.js (App Router, static export)
+- Tailwind CSS
+- TypeScript
+- MDX (for reports and dossier entries when added)
 
-| Page | Path | Description |
-|------|------|-------------|
-| Home | `/` | Hero, stats, recent reports feed |
-| Reports | `/reports` | MDX-powered intelligence reports |
-| Dossier | `/dossier` | Threat actor investigation profiles |
-| Tools | `/tools` | Curated CTI analyst toolkit |
-| About | `/about` | Kenneth Helmuth bio & contact |
-
-## Local Development
+## Local development
 
 ```bash
 npm install
 npm run dev
-# → http://localhost:3000
 ```
 
-## Deploy to GitHub Pages
+The dev server runs at `http://localhost:3000`. Note: because `basePath` is set to
+`/macs-hit.github.io`, all routes in the browser will be under that path.
+Navigate to `http://localhost:3000/macs-hit.github.io`.
 
-### One-time Setup
-
-1. Create repo named `macs-hit.github.io` on GitHub
-2. Push this codebase to `main` branch
-3. In repo **Settings → Pages**: set Source to **GitHub Actions**
-
-### Auto Deploy
-
-Every push to `main` triggers the `.github/workflows/deploy.yml` workflow:
-
-```
-push to main → npm ci → next build (static export → ./out) → deploy to GitHub Pages
-```
-
-### Manual Deploy
+## Build
 
 ```bash
-npm run build   # generates ./out/
-# Then push ./out to gh-pages branch, or let GitHub Actions handle it
+npm run build
 ```
 
-## Adding New Reports
+Output goes to `./out/`. This is what gets deployed.
 
-Create a new directory under `app/reports/[slug]/page.tsx` using the existing Lazarus report as a template.
+## Deploy
 
-Key elements to include:
-- Breadcrumb navigation
-- Severity badge + TLP classification
-- `mdx-content` class on the article body
-- Metadata sidebar (threat actor, confidence, IOC count)
+Push to `main`. GitHub Actions handles the rest.
 
-## Adding New Dossier Entries
+In the repository settings, set **Pages > Source** to **GitHub Actions**.
 
-Add actor objects to the `actors` array in `app/dossier/page.tsx`, then create a detail page at `app/dossier/[actor-id]/page.tsx`.
+## Adding content
 
-## Classification Guide
+### Reports
 
-| TLP | Color | Usage |
-|-----|-------|-------|
-| TLP:WHITE | White | Freely shareable, no restrictions |
-| TLP:GREEN | Green | Community shareable |
-| TLP:AMBER | Amber | Limited distribution |
-| TLP:RED | Red | Recipient only |
+Create `content/reports/your-slug.mdx` with frontmatter:
 
-## License
+```mdx
+---
+title: "Report title"
+date: "YYYY-MM-DD"
+tlp: "WHITE"
+tags: ["tag1", "tag2"]
+summary: "One sentence summary."
+---
 
-Content: © Kenneth Helmuth — All intelligence for educational and defensive purposes only.  
-Code: MIT
+Report body here.
+```
+
+Then update `app/reports/page.tsx` to read and render the files using `gray-matter`
+and `next-mdx-remote`.
+
+### Dossier entries
+
+Same pattern under `content/dossier/`. Update `app/dossier/page.tsx` to consume them.
+
+---
+
+All content is for educational and defensive purposes only.

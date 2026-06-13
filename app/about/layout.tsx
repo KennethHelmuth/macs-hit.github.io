@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — Kenneth Helmuth | MACS-HIT",
+  title: "About",
   description:
-    "About Kenneth Helmuth and the MACS-HIT Cyber Threat Intelligence platform. Research background, methodology, and secure contact.",
+    "About Kenneth Helmuth — independent CTI researcher and operator of MACS-HIT.",
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {

@@ -5,44 +5,34 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "MACS-HIT | Cyber Threat Intelligence",
-    template: "%s | MACS-HIT",
+    default: "MACS-HIT",
+    template: "%s — MACS-HIT",
   },
   description:
-    "Advanced Cyber Threat Intelligence, analysis, dossiers, and research by Kenneth Helmuth. Tracking APTs, malware campaigns, and adversarial infrastructure.",
-  keywords: ["CTI", "Threat Intelligence", "APT", "Malware", "Cybersecurity", "OSINT", "Dossier"],
-  authors: [{ name: "Kenneth Helmuth", url: "https://macs-hit.github.io" }],
+    "Independent threat intelligence research by Kenneth Helmuth. No vendor. No agenda.",
+  metadataBase: new URL("https://kennethhelmuth.github.io/macs-hit.github.io"),
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://macs-hit.github.io",
     siteName: "MACS-HIT",
-    title: "MACS-HIT | Cyber Threat Intelligence",
-    description:
-      "Advanced Cyber Threat Intelligence, analysis, dossiers, and research by Kenneth Helmuth.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "MACS-HIT | Cyber Threat Intelligence",
-    description: "Advanced CTI analysis, dossiers, and research by Kenneth Helmuth.",
+    locale: "en_US",
+    type: "website",
   },
   robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="noise">
+      <body>
         <Navbar />
-        <main style={{ minHeight: "calc(100vh - 64px - 80px)" }}>{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

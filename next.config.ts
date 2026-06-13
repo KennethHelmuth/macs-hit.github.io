@@ -1,9 +1,4 @@
 import type { NextConfig } from "next";
-import createMDX from "@next/mdx";
-
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-});
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -11,7 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  basePath: "/macs-hit.github.io",
+  assetPrefix: "/macs-hit.github.io/",
 };
 
-export default withMDX(nextConfig);
+export default nextConfig;
