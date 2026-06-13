@@ -17,6 +17,16 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: '/macs-hit.github.io/favicon.ico' },
+      { url: '/macs-hit.github.io/favicon.svg', type: 'image/svg+xml' },
+      { url: '/macs-hit.github.io/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/macs-hit.github.io/apple-touch-icon.png', sizes: '180x180' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +37,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/macs-hit.github.io/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
