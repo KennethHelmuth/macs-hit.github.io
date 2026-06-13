@@ -30,7 +30,7 @@ export default function HomePage() {
           <Link href="/reports" className="btn btn-primary">
             Reports
           </Link>
-          <Link href="/dossier" className="btn btn-ghost">
+          <Link href="/dossier" className="btn btn-secondary">
             Dossier
           </Link>
         </div>

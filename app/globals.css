@@ -264,48 +264,60 @@ img, svg { display: block; }
 }
 
 /* ─────────────────────────────────────────
-   Buttons — pill style
-───────────────────────────────────────── */
+   Buttons — Apple pill style
+   ───────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 13px 26px;
-  border-radius: 100px;
-  font-size: 0.9rem;
+  justify-content: center;
+  padding: 12px 28px;
+  min-height: 48px;
+  min-width: 130px;
+  border-radius: 980px;
+  font-size: 0.93rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: none;
   cursor: pointer;
   border: none;
   transition:
-    background 0.25s var(--ease-out),
-    color 0.25s var(--ease-out),
-    border-color 0.25s var(--ease-out),
-    opacity 0.25s;
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease;
   white-space: nowrap;
   text-decoration: none;
 }
 
+.btn:hover {
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
 .btn-primary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: #ffffff;
+  color: #000000;
+  border: none;
 }
 
 .btn-primary:hover {
-  background: var(--text);
-  color: #000;
-  border-color: var(--text);
+  background: #e8e8ed; /* slightly off-white */
+  color: #000000;
 }
 
-.btn-ghost {
+.btn-secondary {
   background: transparent;
-  color: var(--text-2);
-  border: 1px solid transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
-.btn-ghost:hover {
-  color: var(--text);
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1); /* white/10 */
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 /* ─────────────────────────────────────────
