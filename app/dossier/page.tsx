@@ -7,9 +7,22 @@ export const metadata: Metadata = {
     "Threat actor and campaign investigation tracker. Profiles built as research develops.",
 };
 
-async function getEntries() {
-  // Reads from content/dossier/ at build time when entries exist.
-  return [];
+interface DossierEntry {
+  name: string;
+  status: string;
+  infrastructure: string;
+  campaigns: string[];
+}
+
+async function getEntries(): Promise<DossierEntry[]> {
+  return [
+    {
+      name: "Unnamed Crypto Giveaway Operator",
+      status: "Active",
+      infrastructure: "AS26383/Baxet Group",
+      campaigns: ["elon2x.com", "xcoinwallet.net"],
+    },
+  ];
 }
 
 export default async function DossierPage() {
@@ -17,7 +30,7 @@ export default async function DossierPage() {
 
   return (
     <div className="page">
-      <div className="container">
+      <div className="container-mid">
         <Reveal>
           <header className="page-header">
             <p className="page-eyebrow">Investigation Tracker</p>
@@ -35,8 +48,37 @@ export default async function DossierPage() {
             </div>
           </Reveal>
         ) : (
-          <div>
-            {/* Dossier entries render here when MDX files exist */}
+          <div className="dossier-grid">
+            {entries.map((entry, index) => (
+              <Reveal key={entry.name} delay={100 + index * 80}>
+                <div className="dossier-card">
+                  <div className="dossier-header">
+                    <h2 className="dossier-name">{entry.name}</h2>
+                    <span className={`status-badge status-${entry.status.toLowerCase()}`}>
+                      {entry.status}
+                    </span>
+                  </div>
+
+                  <div className="dossier-details">
+                    <div className="dossier-detail-group">
+                      <span className="dossier-label">Infrastructure</span>
+                      <span className="dossier-value">{entry.infrastructure}</span>
+                    </div>
+
+                    <div className="dossier-detail-group">
+                      <span className="dossier-label">Campaigns</span>
+                      <div className="dossier-campaigns">
+                        {entry.campaigns.map((camp) => (
+                          <span key={camp} className="dossier-campaign">
+                            {camp}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         )}
       </div>
