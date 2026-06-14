@@ -489,9 +489,10 @@ img, svg { display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--border);
   transition: opacity 0.2s;
+  text-decoration: none;
 }
 
 .about-link-row:first-child {
@@ -499,6 +500,18 @@ img, svg { display: block; }
 }
 
 .about-link-row:hover { opacity: 0.65; }
+
+.about-link-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-link-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-3);
+}
 
 .about-link-label {
   font-family: var(--mono);
