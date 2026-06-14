@@ -92,33 +92,6 @@ export default async function ReportsPage() {
           </header>
         </Reveal>
 
-        {/* Spotlight-style search bar — visual only */}
-        <Reveal delay={80}>
-          <div className="spotlight-wrapper">
-            <div className="spotlight-bar">
-              <svg
-                className="spotlight-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              <input
-                type="text"
-                className="spotlight-input"
-                placeholder="Search intelligence..."
-                aria-label="Search intelligence reports"
-              />
-            </div>
-          </div>
-        </Reveal>
 
         {reports.length === 0 ? (
           <Reveal delay={120}>
