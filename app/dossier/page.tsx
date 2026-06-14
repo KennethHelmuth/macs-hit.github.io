@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 
 interface DossierEntry {
   name: string;
-  status: string;
   infrastructure: string;
   campaigns: string[];
+  reportUrl?: string;
 }
 
 async function getEntries(): Promise<DossierEntry[]> {
   return [
     {
       name: "Unnamed Crypto Giveaway Operator",
-      status: "Active",
       infrastructure: "AS26383/Baxet Group",
       campaigns: ["elon2x.com", "xcoinwallet.net"],
+      reportUrl: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13?postPublishedType=repub",
     },
   ];
 }
@@ -51,12 +51,14 @@ export default async function DossierPage() {
           <div className="dossier-grid">
             {entries.map((entry, index) => (
               <Reveal key={entry.name} delay={100 + index * 80}>
-                <div className="dossier-card">
+                <a
+                  href={entry.reportUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dossier-card"
+                >
                   <div className="dossier-header">
                     <h2 className="dossier-name">{entry.name}</h2>
-                    <span className={`status-badge status-${entry.status.toLowerCase()}`}>
-                      {entry.status}
-                    </span>
                   </div>
 
                   <div className="dossier-details">
@@ -76,7 +78,13 @@ export default async function DossierPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+
+                  {entry.reportUrl && (
+                    <span className="dossier-card-link">
+                      Read Investigation Report <span>→</span>
+                    </span>
+                  )}
+                </a>
               </Reveal>
             ))}
           </div>

@@ -999,6 +999,9 @@ img, svg { display: block; }
     box-shadow 0.3s ease;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   position: relative;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .dossier-card:hover {
@@ -1094,4 +1097,24 @@ img, svg { display: block; }
 .dossier-card:hover .dossier-campaign {
   background: rgba(58, 134, 255, 0.08);
   border-color: rgba(58, 134, 255, 0.25);
+}
+
+.dossier-card-link {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dossier-card-link span {
+  transition: transform 0.2s var(--ease-out);
+}
+
+.dossier-card:hover .dossier-card-link span {
+  transform: translateX(4px);
 }
