@@ -12,10 +12,12 @@ const tools = [
     badge: "Open Source",
   },
   {
-    name: "IoC-Triage-tool",
+    name: "IOC Triage",
     description:
-      "Tool for triaging indicators of compromise. Designed to reduce time spent on the manual analysis stage of threat investigations.",
-    url: "https://github.com/kennethhelmuth/IoC-Triage-tool",
+      "Interactive TUI for parsing and triaging Indicators of Compromise. Auto-detect, defang, and deduplicate 10+ IOC types with one-click lookups across 30+ threat intel platforms. Built for CTI analysts and SOC operators.",
+    url: "https://github.com/KennethHelmuth/IoC-Triage-tool",
+    language: "Rust",
+    badge: "Open Source",
   },
   {
     name: "JS-Deobfuscator",
