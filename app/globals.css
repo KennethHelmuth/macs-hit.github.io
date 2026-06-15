@@ -1118,3 +1118,50 @@ img, svg { display: block; }
 .dossier-card:hover .dossier-card-link span {
   transform: translateX(4px);
 }
+
+/* ─────────────────────────────────────────
+   Tools Metadata Badges & Styling
+   ───────────────────────────────────────── */
+.tool-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.tool-header .tool-name {
+  margin-bottom: 0;
+}
+
+.tool-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-badge {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(58, 134, 255, 0.08);
+  border: 1px solid rgba(58, 134, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tool-lang {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 4px;
+}

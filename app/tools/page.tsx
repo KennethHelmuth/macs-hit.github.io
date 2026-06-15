@@ -4,6 +4,14 @@ import Reveal from "@/components/Reveal";
 
 const tools = [
   {
+    name: "ChainTrack",
+    description:
+      "Interactive TUI for blockchain wallet analysis. Track wallets, map transaction history, detect linked addresses across BTC, ETH, USDT, SOL and BNB. Built for CTI analysts.",
+    url: "https://github.com/KennethHelmuth/chaintrack",
+    language: "Rust",
+    badge: "Open Source",
+  },
+  {
     name: "IoC-Triage-tool",
     description:
       "Tool for triaging indicators of compromise. Designed to reduce time spent on the manual analysis stage of threat investigations.",
@@ -38,17 +46,22 @@ export default function ToolsPage() {
           {tools.map((tool, i) => (
             <Reveal key={tool.name} delay={i * 80}>
               <div className="tool-item">
-                <a
-                  href={tool.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tool-name"
-                  style={{ display: "block" }}
-                >
-                  {tool.name}
-                </a>
+                <div className="tool-header">
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="tool-name"
+                  >
+                    {tool.name}
+                  </a>
+                  <div className="tool-meta">
+                    {tool.language && <span className="tool-lang">{tool.language}</span>}
+                    {tool.badge && <span className="tool-badge">{tool.badge}</span>}
+                  </div>
+                </div>
                 <p className="tool-repo">
-                  github.com/kennethhelmuth/{tool.name}
+                  {tool.url.replace("https://", "")}
                 </p>
                 <p className="tool-desc">{tool.description}</p>
               </div>
