@@ -20,10 +20,12 @@ const tools = [
     badge: "Open Source",
   },
   {
-    name: "JS-Deobfuscator",
+    name: "JS Deobfuscator",
     description:
-      "JavaScript deobfuscation utility for analyzing obfuscated malicious scripts encountered during investigations.",
-    url: "https://github.com/kennethhelmuth/JS-Deobfuscator",
+      "Production-ready CLI tool for purely static JavaScript deobfuscation using Babel AST transformations. Safely unpacks, deobfuscates, and linearizes obfuscated scripts (defeating control flow flattening, proxy functions, and string array encoding) without execution.",
+    url: "https://github.com/KennethHelmuth/JS-Deobfuscator",
+    language: "JavaScript",
+    badge: "Open Source",
   },
   {
     name: "Security-Analysis-Helper-Toolkit",
