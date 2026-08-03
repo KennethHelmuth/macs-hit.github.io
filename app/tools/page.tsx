@@ -28,6 +28,14 @@ const tools = [
     badge: "Open Source",
   },
   {
+    name: "Pivot Chains",
+    description:
+      "Visual reference mapping 33 Indicator of Compromise (IOC) types to full CTI & OSINT pivot chains with step-by-step tool playbooks for expanding indicators into complete adversary infrastructure graphs.",
+    url: "https://github.com/KennethHelmuth/Pivot-chains",
+    language: "Markdown",
+    badge: "Open Source",
+  },
+  {
     name: "Security-Analysis-Helper-Toolkit",
     description:
       "Collection of helper scripts assembled for common tasks in security analysis workflows.",

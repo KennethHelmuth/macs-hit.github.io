@@ -27,6 +27,12 @@ const categories = [
     description: "Index of published threat intelligence reports.",
     url: "https://github.com/KennethHelmuth/threat-intelligence/tree/main/Reports",
   },
+  {
+    title: "Pivot Chains",
+    description: "Visual playbooks mapping 33 IOC types to full OSINT & CTI expansion paths across infrastructure, files, identities, and malware.",
+    url: "https://github.com/KennethHelmuth/Pivot-chains",
+    linkText: "View Reference",
+  },
 ];
 
 export default function IntelligencePage() {
@@ -52,7 +58,7 @@ export default function IntelligencePage() {
                 <h2 className="intel-card-title">{cat.title}</h2>
                 <p className="intel-card-desc">{cat.description}</p>
                 <span className="intel-card-link">
-                  Browse Files <span>→</span>
+                  {cat.linkText || "Browse Files"} <span>→</span>
                 </span>
               </a>
             </Reveal>
