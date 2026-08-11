@@ -528,6 +528,97 @@ img, svg { display: block; }
 }
 
 /* ─────────────────────────────────────────
+   Achievements
+───────────────────────────────────────── */
+.achievements-section {
+  margin-bottom: 80px;
+}
+
+.achievement-card {
+  padding: 24px 28px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+  border-color: var(--border-mid);
+  background: rgba(255, 255, 255, 0.055);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.achievement-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.achievement-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.achievement-date {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+.achievement-desc {
+  font-size: 0.92rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+.achievement-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.achievement-link span {
+  transition: transform 0.2s var(--ease-out);
+}
+
+.achievement-card:hover .achievement-link span {
+  transform: translateX(4px);
+}
+
+/* ─────────────────────────────────────────
    Footer
 ───────────────────────────────────────── */
 .footer {
