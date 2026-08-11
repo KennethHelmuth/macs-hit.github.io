@@ -10,6 +10,7 @@ const links = [
   { href: "/intelligence", label: "Intelligence" },
   { href: "/tools",   label: "Tools"   },
   { href: "/resources", label: "Resources" },
+  { href: "/achievements", label: "Achievements" },
   { href: "/about",   label: "About"   },
 ];
 

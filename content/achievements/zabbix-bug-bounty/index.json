@@ -1,0 +1,21 @@
+{
+  "id": "zabbix-bug-bounty",
+  "slug": "zabbix-bug-bounty",
+  "title": "Zabbix — Bug Bounty Reward ($500)",
+  "program": "Zabbix",
+  "platform": "HackerOne",
+  "reward": "$500",
+  "date": "July 24, 2026",
+  "year": "2026",
+  "category": "Bug Bounty",
+  "recipient": "kennethhm-dev",
+  "badge": "$500 Bounty",
+  "description": "Rewarded a $500 bounty by Zabbix on HackerOne for identifying and responsibly disclosing a security vulnerability in accordance with their program reward structure.",
+  "proofImage": "/achievements/zabbix-bug-bounty/proof.png",
+  "proofDetails": {
+    "organization": "Zabbix",
+    "handler": "kennethhm-dev",
+    "updatedAt": "July 24, 2026, 6:20am UTC",
+    "message": "The reward is 500$ based on our program reward table. I'm not sure of the exact time it will actually be available to you. Please contact the H1 team for those details. And thank you for your submission once again!"
+  }
+}

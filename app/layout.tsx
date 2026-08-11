@@ -35,6 +35,10 @@ export default function RootLayout({
         <link rel="icon" href="/macs-hit.github.io/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn-images-1.medium.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://miro.medium.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn-images-1.medium.com" />
+        <link rel="dns-prefetch" href="https://miro.medium.com" />
       </head>
       <body>
         <Navbar />

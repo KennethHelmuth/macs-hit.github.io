@@ -16,15 +16,210 @@ interface ReportItem {
   tags?: string[];
 }
 
+function optimizeMediumImageUrl(url: string, targetWidth = 720): string {
+  if (!url) return url;
+  // Replace large /max/XXXX/ or /resize:fit:XXXX/ with optimal card resolution (60-70% payload reduction)
+  return url
+    .replace(/\/max\/\d+\//, `/max/${targetWidth}/`)
+    .replace(/\/resize:fit:\d+\//, `/resize:fit:${targetWidth}/`);
+}
+
 const REPORT_OVERRIDES: Record<string, Partial<ReportItem>> = {
-  "same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure": {
-    link: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13?postPublishedType=repub",
+  "same-wallet-two-domains": {
+    link: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13",
     tlp: "WHITE",
     tags: ["Cryptocurrency", "Fraud", "Bulletproof Hosting", "X Platform", "SOCINT"],
     description: "A serial crypto scam operator running coordinated celebrity impersonation campaigns across two domains on bulletproof hosting infrastructure, with ~$1,056 USD confirmed collected in 18 days.",
     pubDate: "June 14, 2026",
-  }
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*He8gf-ypeUaDNlbRf9xsfg.png",
+  },
+  "the-21-month-blind-spot": {
+    link: "https://medium.com/@Real-macs_hit/the-21-month-blind-spot-why-dcrat-is-still-evading-enterprise-defenses-in-2026-b79682925760",
+    tlp: "CLEAR",
+    tags: ["Malware Analysis", "DCRat", "Threat Hunting", "C2 Infrastructure", "Reverse Engineering"],
+    description: "A live technical investigation into an active DCRat commodity malware campaign, reverse-engineering the multi-stage infection chain, Stealer plugins, and exposed C2 endpoints.",
+    pubDate: "May 7, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Qu5hUZlI_QtPkD7xtsfFQQ.png",
+  },
+  "gemstuffer-and-bufferzonecorp": {
+    title: "GemStuffer and BufferZoneCorp: Two Hidden Operations That Quietly Targeted Every Developer’s Environment",
+    link: "https://medium.com/@Real-macs_hit/gemstuffer-and-bufferzonecorp-two-hidden-operations-that-quietly-targeted-every-developers-329b79eb30dd",
+    tlp: "CLEAR",
+    tags: ["Supply Chain", "RubyGems", "PyPI", "Threat Intelligence", "DevSecOps"],
+    description: "Technical breakdown of two covert supply chain attacks targeting package repositories: GemStuffer scraping UK government data and BufferZoneCorp targeting developer environments.",
+    pubDate: "May 22, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*9CxtAIK6-fIQ3wxiiuQAyA.png",
+  },
+  "threat-advisory-the-campaign-triad": {
+    link: "https://medium.com/@Real-macs_hit/threat-advisory-the-campaign-triad-f97fabb5b55f",
+    tlp: "CLEAR",
+    tags: ["Threat Advisory", "Supply Chain", "Active Directory", "Cloud Security"],
+    description: "Comprehensive threat advisory covering three concurrent cyber campaigns targeting software supply chains, Windows enterprise infrastructure, and cloud identity vectors.",
+    pubDate: "May 21, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*gUx8k-njiaeC355tvy-m_w.png",
+  },
+  "ghidra-themed-macos-campaign": {
+    link: "https://medium.com/@Real-macs_hit/ghidra-themed-macos-campaign-full-incident-report-a-technical-analysis-9010c33f40b5",
+    tlp: "WHITE",
+    tags: ["macOS Malware", "Ghidra", "Reverse Engineering", "Incident Response", "Mach-O"],
+    description: "Full incident triage and technical analysis of a macOS malware campaign leveraging fake Ghidra reverse engineering installers to deliver second-stage payloads.",
+    pubDate: "January 30, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*6-zCCocaw7sCfijP5_lblw.png",
+  },
+  "unmasking-the-maffia": {
+    link: "https://medium.com/@Real-macs_hit/unmasking-the-maffia-a-deep-dive-into-the-5-stage-formbook-fileless-kill-chain-24a18b9f7732",
+    tlp: "WHITE",
+    tags: ["FormBook", "Fileless Malware", "PowerShell", "Memory Injection", "Stealer"],
+    description: "In-depth reverse engineering of a 5-stage fileless loader kill chain (CU.ps1) deploying FormBook infostealer through encrypted PowerShell and MAFFIA memory loaders.",
+    pubDate: "January 18, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*zSX6d476SbnfyF1fp6hmXA.png",
+  },
+  "threat-intelligence-dossier-toxicsnake": {
+    link: "https://themalwarefiles.com/threat-intelligence-dossier-toxicsnake-b3e954bd644b",
+    tlp: "WHITE",
+    tags: ["TDS", "Traffic Distribution", "JavaScript Loader", "Infrastructure Tracking"],
+    description: "Threat intelligence dossier tracking the TOXICSNAKE multi-domain traffic distribution system (TDS) and obfuscated JavaScript delivery infrastructure.",
+    pubDate: "January 27, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*81Lx8tC1OSfCNK73wD67yQ.jpeg",
+  },
+  "inside-bankomat": {
+    link: "https://medium.com/@Real-macs_hit/inside-bankomat-a-case-study-of-an-undergroundidentity-market-threat-summary-public-warning-2bff9752b781",
+    tlp: "WHITE",
+    tags: ["Darknet", "Identity Theft", "Underground Markets", "Cybercrime", "OSINT"],
+    description: "Investigation into 'BANKOMAT', a commercialized darknet identity marketplace trading fullz, SSNs, and compromised personal records with SaaS-style infrastructure.",
+    pubDate: "January 25, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*5CIMn2z6XrTSEabISVCiSQ.png",
+  },
+  "intelligence-report-transnational-page-laundering": {
+    title: "Intelligence Report: Transnational Page Laundering & Dual-Fraud Network",
+    link: "https://medium.com/@Real-macs_hit/intelligence-report-transnational-page-laundering-dual-fraud-network-823dfb19589d",
+    tlp: "WHITE",
+    tags: ["Social Media Fraud", "Page Laundering", "Phishing", "OSINT", "SOCINT"],
+    description: "Investigation exposing a multi-million follower organized crime network operating transnational page laundering across Meta pages, running concurrent IP phishing and health fraud schemes managed out of Vietnam.",
+    pubDate: "January 15, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*gik388zuUf60pncn432QWA.png",
+  },
+  "2026-amos-variant": {
+    title: "2026 AMOS-Variant (Affiliate xxxblyat)",
+    link: "https://medium.com/@Real-macs_hit/2026-amos-variant-affiliate-xxxblyat-2653a79d2cd8",
+    tlp: "WHITE",
+    tags: ["Atomic Stealer", "AMOS", "macOS Malware", "ClickFix", "AppleScript", "C2"],
+    description: "Technical analysis of an advanced 2026 Atomic Stealer (AMOS) variant distributed via typosquatted domains (ptython[.]com) and ClickFix lures, featuring persistent LaunchAgent RAT capabilities and SOCKS5 proxying.",
+    pubDate: "January 13, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*rLFuMnMWYUKt50A36W3L4Q.png",
+  },
+  "mass-youtube-livestream-hijacking": {
+    title: "Mass YouTube Livestream Hijacking & Cryptocurrency Giveaway Scam",
+    link: "https://medium.com/@Real-macs_hit/mass-youtube-livestream-hijacking-cryptocurrency-giveaway-scam-using-impersonation-and-fake-959a9c4824a1",
+    tlp: "WHITE",
+    tags: ["YouTube Hijacking", "Crypto Scam", "Account Takeover", "Fraud", "OSINT"],
+    description: "Investigation documenting coordinated mass account takeovers of legitimate YouTube channels running looped livestreams, fake giveaway websites (trump25.us), and fabricated blockchain transaction telemetry.",
+    pubDate: "January 8, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*EjZOfq-eYVmN3l7J-EdyHQ.png",
+  },
 };
+
+const FALLBACK_REPORTS: ReportItem[] = [
+  {
+    title: "The 21-Month Blind Spot: Why DCRat is still Evading Enterprise Defenses in 2026",
+    link: "https://medium.com/@Real-macs_hit/the-21-month-blind-spot-why-dcrat-is-still-evading-enterprise-defenses-in-2026-b79682925760",
+    pubDate: "May 7, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Qu5hUZlI_QtPkD7xtsfFQQ.png",
+    description: "A live technical investigation into an active DCRat commodity malware campaign, reverse-engineering the multi-stage infection chain, Stealer plugins, and exposed C2 endpoints.",
+    tlp: "CLEAR",
+    tags: ["Malware Analysis", "DCRat", "Threat Hunting", "C2 Infrastructure", "Reverse Engineering"],
+  },
+  {
+    title: "Same Wallet, Two Domains: Tracking a Serial Crypto Scam Operator on Bulletproof Infrastructure",
+    link: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13",
+    pubDate: "June 14, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*He8gf-ypeUaDNlbRf9xsfg.png",
+    description: "A serial crypto scam operator running coordinated celebrity impersonation campaigns across two domains on bulletproof hosting infrastructure, with ~$1,056 USD confirmed collected in 18 days.",
+    tlp: "WHITE",
+    tags: ["Cryptocurrency", "Fraud", "Bulletproof Hosting", "X Platform", "SOCINT"],
+  },
+  {
+    title: "GemStuffer and BufferZoneCorp: Two Hidden Operations That Quietly Targeted Every Developer’s Environment",
+    link: "https://medium.com/@Real-macs_hit/gemstuffer-and-bufferzonecorp-two-hidden-operations-that-quietly-targeted-every-developers-329b79eb30dd",
+    pubDate: "May 22, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*9CxtAIK6-fIQ3wxiiuQAyA.png",
+    description: "Technical breakdown of two covert supply chain attacks targeting package repositories: GemStuffer scraping UK government data and BufferZoneCorp targeting developer environments.",
+    tlp: "CLEAR",
+    tags: ["Supply Chain", "RubyGems", "PyPI", "Threat Intelligence", "DevSecOps"],
+  },
+  {
+    title: "Threat Advisory: The Campaign Triad",
+    link: "https://medium.com/@Real-macs_hit/threat-advisory-the-campaign-triad-f97fabb5b55f",
+    pubDate: "May 21, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*gUx8k-njiaeC355tvy-m_w.png",
+    description: "Comprehensive threat advisory covering three concurrent cyber campaigns targeting software supply chains, Windows enterprise infrastructure, and cloud identity vectors.",
+    tlp: "CLEAR",
+    tags: ["Threat Advisory", "Supply Chain", "Active Directory", "Cloud Security"],
+  },
+  {
+    title: "Ghidra-themed macOS campaign — full incident report (A Technical Analysis)",
+    link: "https://medium.com/@Real-macs_hit/ghidra-themed-macos-campaign-full-incident-report-a-technical-analysis-9010c33f40b5",
+    pubDate: "January 30, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*6-zCCocaw7sCfijP5_lblw.png",
+    description: "Full incident triage and technical analysis of a macOS malware campaign leveraging fake Ghidra reverse engineering installers to deliver second-stage payloads.",
+    tlp: "WHITE",
+    tags: ["macOS Malware", "Ghidra", "Reverse Engineering", "Incident Response", "Mach-O"],
+  },
+  {
+    title: "Unmasking the MAFFIA: A Deep Dive into the 5-Stage FormBook Fileless Kill-Chain",
+    link: "https://medium.com/@Real-macs_hit/unmasking-the-maffia-a-deep-dive-into-the-5-stage-formbook-fileless-kill-chain-24a18b9f7732",
+    pubDate: "January 18, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*zSX6d476SbnfyF1fp6hmXA.png",
+    description: "In-depth reverse engineering of a 5-stage fileless loader kill chain (CU.ps1) deploying FormBook infostealer through encrypted PowerShell and MAFFIA memory loaders.",
+    tlp: "WHITE",
+    tags: ["FormBook", "Fileless Malware", "PowerShell", "Memory Injection", "Stealer"],
+  },
+  {
+    title: "Threat Intelligence Dossier: TOXICSNAKE",
+    link: "https://themalwarefiles.com/threat-intelligence-dossier-toxicsnake-b3e954bd644b",
+    pubDate: "January 27, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*81Lx8tC1OSfCNK73wD67yQ.jpeg",
+    description: "Threat intelligence dossier tracking the TOXICSNAKE multi-domain traffic distribution system (TDS) and obfuscated JavaScript delivery infrastructure.",
+    tlp: "WHITE",
+    tags: ["TDS", "Traffic Distribution", "JavaScript Loader", "Infrastructure Tracking"],
+  },
+  {
+    title: "Inside “BANKOMAT”: A Case Study of an UndergroundIdentity Market-Threat Summary & Public Warning.",
+    link: "https://medium.com/@Real-macs_hit/inside-bankomat-a-case-study-of-an-undergroundidentity-market-threat-summary-public-warning-2bff9752b781",
+    pubDate: "January 25, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*5CIMn2z6XrTSEabISVCiSQ.png",
+    description: "Investigation into 'BANKOMAT', a commercialized darknet identity marketplace trading fullz, SSNs, and compromised personal records with SaaS-style infrastructure.",
+    tlp: "WHITE",
+    tags: ["Darknet", "Identity Theft", "Underground Markets", "Cybercrime", "OSINT"],
+  },
+  {
+    title: "Intelligence Report: Transnational Page Laundering & Dual-Fraud Network",
+    link: "https://medium.com/@Real-macs_hit/intelligence-report-transnational-page-laundering-dual-fraud-network-823dfb19589d",
+    pubDate: "January 15, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*gik388zuUf60pncn432QWA.png",
+    description: "Investigation exposing a multi-million follower organized crime network operating transnational page laundering across Meta pages, running concurrent IP phishing and health fraud schemes managed out of Vietnam.",
+    tlp: "WHITE",
+    tags: ["Social Media Fraud", "Page Laundering", "Phishing", "OSINT", "SOCINT"],
+  },
+  {
+    title: "2026 AMOS-Variant (Affiliate xxxblyat)",
+    link: "https://medium.com/@Real-macs_hit/2026-amos-variant-affiliate-xxxblyat-2653a79d2cd8",
+    pubDate: "January 13, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*rLFuMnMWYUKt50A36W3L4Q.png",
+    description: "Technical analysis of an advanced 2026 Atomic Stealer (AMOS) variant distributed via typosquatted domains (ptython[.]com) and ClickFix lures, featuring persistent LaunchAgent RAT capabilities and SOCKS5 proxying.",
+    tlp: "WHITE",
+    tags: ["Atomic Stealer", "AMOS", "macOS Malware", "ClickFix", "AppleScript", "C2"],
+  },
+  {
+    title: "Mass YouTube Livestream Hijacking & Cryptocurrency Giveaway Scam",
+    link: "https://medium.com/@Real-macs_hit/mass-youtube-livestream-hijacking-cryptocurrency-giveaway-scam-using-impersonation-and-fake-959a9c4824a1",
+    pubDate: "January 8, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*EjZOfq-eYVmN3l7J-EdyHQ.png",
+    description: "Investigation documenting coordinated mass account takeovers of legitimate YouTube channels running looped livestreams, fake giveaway websites (trump25.us), and fabricated blockchain transaction telemetry.",
+    tlp: "WHITE",
+    tags: ["YouTube Hijacking", "Crypto Scam", "Account Takeover", "Fraud", "OSINT"],
+  },
+];
 
 async function getReports(): Promise<ReportItem[]> {
   try {
@@ -39,9 +234,9 @@ async function getReports(): Promise<ReportItem[]> {
     const items = xml.split("<item>");
     items.shift(); // remove channel info
 
-    return items.map((item) => {
+    const parsedReports: ReportItem[] = items.map((item) => {
       const titleMatch = item.match(/<title>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([\s\S]*?))<\/title>/);
-      const title = titleMatch ? (titleMatch[1] || titleMatch[2]).trim() : "";
+      let title = titleMatch ? (titleMatch[1] || titleMatch[2]).trim() : "";
 
       const linkMatch = item.match(/<link>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([\s\S]*?))<\/link>/);
       let link = linkMatch ? (linkMatch[1] || linkMatch[2]).trim() : "";
@@ -52,9 +247,12 @@ async function getReports(): Promise<ReportItem[]> {
       const contentMatch = item.match(/<content:encoded>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([\s\S]*?))<\/content:encoded>/);
       const content = contentMatch ? (contentMatch[1] || contentMatch[2]) : "";
 
-      // Extract first img src from content
+      // Extract first img src from content and optimize thumbnail URL
       const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/);
-      const thumbnail = imgMatch ? imgMatch[1] : "";
+      let thumbnail = imgMatch ? imgMatch[1] : "";
+      if (thumbnail) {
+        thumbnail = optimizeMediumImageUrl(thumbnail, 720);
+      }
 
       // Extract paragraphs
       const pMatches = [...content.matchAll(/<p>([\s\S]*?)<\/p>/g)].map((m) => m[1]);
@@ -66,12 +264,16 @@ async function getReports(): Promise<ReportItem[]> {
       let tlp: string | undefined = undefined;
       let tags: string[] | undefined = undefined;
 
-      const overrideKey = Object.keys(REPORT_OVERRIDES).find(key => link.includes(key));
+      const overrideKey = Object.keys(REPORT_OVERRIDES).find(key =>
+        link.includes(key) || title.toLowerCase().includes(key.replace(/-/g, " "))
+      );
       if (overrideKey) {
         const override = REPORT_OVERRIDES[overrideKey];
+        if (override.title) title = override.title;
         if (override.link) link = override.link;
         if (override.description) description = override.description;
         if (override.pubDate) pubDate = override.pubDate;
+        if (override.thumbnail && !thumbnail) thumbnail = override.thumbnail;
         if (override.tlp) tlp = override.tlp;
         if (override.tags) tags = override.tags;
       }
@@ -86,9 +288,40 @@ async function getReports(): Promise<ReportItem[]> {
         tags,
       };
     });
+
+    // Deduplicate cross-posted reports (e.g. personal account vs publication account)
+    const seen = new Set<string>();
+    const uniqueReports: ReportItem[] = [];
+
+    for (const report of parsedReports) {
+      if (!report.title) continue;
+      // Normalize title for cross-post collision detection
+      const normalizedTitle = report.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "");
+
+      if (seen.has(normalizedTitle)) {
+        continue;
+      }
+      seen.add(normalizedTitle);
+      uniqueReports.push(report);
+    }
+
+    // Merge any published reports from FALLBACK_REPORTS that may have rolled out of the 10-item RSS window
+    for (const fallback of FALLBACK_REPORTS) {
+      const normalizedTitle = fallback.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "");
+      if (!seen.has(normalizedTitle)) {
+        seen.add(normalizedTitle);
+        uniqueReports.push(fallback);
+      }
+    }
+
+    return uniqueReports;
   } catch (error) {
     console.error("Error fetching Medium RSS feed:", error);
-    return [];
+    return FALLBACK_REPORTS;
   }
 }
 
@@ -101,7 +334,7 @@ function formatDate(dateStr: string) {
       day: "numeric",
       year: "numeric",
     });
-  } catch (e) {
+  } catch {
     return dateStr;
   }
 }
@@ -152,7 +385,11 @@ export default async function ReportsPage() {
                         src={report.thumbnail}
                         alt={report.title}
                         className="report-img"
-                        loading="lazy"
+                        loading={index < 2 ? "eager" : "lazy"}
+                        decoding="async"
+                        fetchPriority={index === 0 ? "high" : "auto"}
+                        width={720}
+                        height={405}
                       />
                     </div>
                   )}

@@ -28,10 +28,20 @@ const tools = [
     badge: "Open Source",
   },
   {
-    name: "Security-Analysis-Helper-Toolkit",
+    name: "Security Analysis Helper Toolkit",
     description:
-      "Collection of helper scripts assembled for common tasks in security analysis workflows.",
-    url: "https://github.com/kennethhelmuth/Security-Analysis-Helper-Toolkit",
+      "Collection of lightweight, standalone Python CLI utilities for safe malware sample handling, static analysis, defensive archive unpacking (zip bomb & traversal protected), and automated audit logging in DFIR and CTI lab environments.",
+    url: "https://github.com/KennethHelmuth/Security-Analysis-Helper-Toolkit",
+    language: "Python",
+    badge: "Open Source",
+  },
+  {
+    name: "Pivot Chains",
+    description:
+      "Visual reference and playbooks mapping 33 distinct Indicator of Compromise (IOC) types to full pivot chains, detailing specific CTI and OSINT toolchains across 6 core analytical domains.",
+    url: "https://github.com/KennethHelmuth/Pivot-chains",
+    language: "OSINT / CTI",
+    badge: "Reference",
   },
 ];
 

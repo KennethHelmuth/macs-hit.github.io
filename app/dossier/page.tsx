@@ -20,7 +20,61 @@ async function getEntries(): Promise<DossierEntry[]> {
       name: "Unnamed Crypto Giveaway Operator",
       infrastructure: "AS26383/Baxet Group",
       campaigns: ["elon2x.com", "xcoinwallet.net"],
-      reportUrl: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13?postPublishedType=repub",
+      reportUrl: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13",
+    },
+    {
+      name: "DCRat Commodity Threat Cluster",
+      infrastructure: "Bulletproof VPS / PHP C2 (/L1nc0In.php)",
+      campaigns: ["DCRat 2026 Distribution", "Crystal Stealer Plug-in"],
+      reportUrl: "https://medium.com/@Real-macs_hit/the-21-month-blind-spot-why-dcrat-is-still-evading-enterprise-defenses-in-2026-b79682925760",
+    },
+    {
+      name: "GemStuffer & BufferZoneCorp Operators",
+      infrastructure: "RubyGems & PyPI Package Repositories",
+      campaigns: ["GemStuffer UK Gov Scrape", "BufferZoneCorp Dev Infiltration"],
+      reportUrl: "https://medium.com/@Real-macs_hit/gemstuffer-and-bufferzonecorp-two-hidden-operations-that-quietly-targeted-every-developers-329b79eb30dd",
+    },
+    {
+      name: "TOXICSNAKE Threat Cluster",
+      infrastructure: "Multi-Domain TDS / Obfuscated JS Loaders",
+      campaigns: ["TOXICSNAKE Traffic Distribution", "Stage-1 JS Dropper"],
+      reportUrl: "https://themalwarefiles.com/threat-intelligence-dossier-toxicsnake-b3e954bd644b",
+    },
+    {
+      name: "MAFFIA / FormBook Threat Group",
+      infrastructure: "Fileless PowerShell In-Memory Staging",
+      campaigns: ["CU.ps1 Fileless Chain", "MAFFIA Memory Loader", "FormBook Stealer"],
+      reportUrl: "https://medium.com/@Real-macs_hit/unmasking-the-maffia-a-deep-dive-into-the-5-stage-formbook-fileless-kill-chain-24a18b9f7732",
+    },
+    {
+      name: "Fake Ghidra macOS Campaign Operator",
+      infrastructure: "Masqueraded Reverse Engineering Portals",
+      campaigns: ["Ghidra macOS Lure", "Mach-O Stage-2 Payload Delivery"],
+      reportUrl: "https://medium.com/@Real-macs_hit/ghidra-themed-macos-campaign-full-incident-report-a-technical-analysis-9010c33f40b5",
+    },
+    {
+      name: "BANKOMAT Underground Identity Market",
+      infrastructure: "Tor Hidden Services / Automated Identity Escrow",
+      campaigns: ["BANKOMAT Fullz Trading", "Automated SSN Harvesting"],
+      reportUrl: "https://medium.com/@Real-macs_hit/inside-bankomat-a-case-study-of-an-undergroundidentity-market-threat-summary-public-warning-2bff9752b781",
+    },
+    {
+      name: "Vietnam-Managed Page Laundering Network",
+      infrastructure: "Meta High-Follower Page Laundering / Phishing Hub",
+      campaigns: ["Transnational Dual-Fraud Network", "Meta Page Assembly Line", "Vietnam Admin Ring"],
+      reportUrl: "https://medium.com/@Real-macs_hit/intelligence-report-transnational-page-laundering-dual-fraud-network-823dfb19589d",
+    },
+    {
+      name: "Atomic Stealer (Affiliate xxxblyat)",
+      infrastructure: "Typosquatted Domains (ptython[.]com) / C2: 217.119.139.117",
+      campaigns: ["AMOS ClickFix Distribution", "LaunchAgent Persistence RAT", "Affiliate xxxblyat Campaign"],
+      reportUrl: "https://medium.com/@Real-macs_hit/2026-amos-variant-affiliate-xxxblyat-2653a79d2cd8",
+    },
+    {
+      name: "Mass YouTube Livestream Hijacking Ring",
+      infrastructure: "Compromised YouTube Channels / trump25.us",
+      campaigns: ["Looped Stream Impersonation", "Fake Giveaway BTC (12QTXE...)", "#trumpcrypto2025 Lures"],
+      reportUrl: "https://medium.com/@Real-macs_hit/mass-youtube-livestream-hijacking-cryptocurrency-giveaway-scam-using-impersonation-and-fake-959a9c4824a1",
     },
   ];
 }
