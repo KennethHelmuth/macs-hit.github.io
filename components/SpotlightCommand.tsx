@@ -173,11 +173,11 @@ export default function SpotlightCommand() {
 
   return (
     <>
-      {/* Search Trigger Button in Navbar */}
+      {/* Search Trigger Button in Navbar (Responsive) */}
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Open Spotlight search"
-        className="hidden md:inline-flex items-center gap-2.5 px-3 py-1.5 text-[12px] font-medium text-[#a1a1a6] hover:text-[#f5f5f7] bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] hover:border-white/[0.2] rounded-full transition-all duration-200"
+        className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1.5 text-[12px] font-medium text-[#a1a1a6] hover:text-[#f5f5f7] bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] hover:border-white/[0.2] rounded-full transition-all duration-200"
       >
         <svg
           width="13"
@@ -193,8 +193,8 @@ export default function SpotlightCommand() {
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
-        <span>Spotlight</span>
-        <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-white/10 rounded text-[#f5f5f7]">
+        <span className="hidden sm:inline">Spotlight</span>
+        <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-white/10 rounded text-[#f5f5f7]">
           {shortcutKey}
         </kbd>
       </button>
