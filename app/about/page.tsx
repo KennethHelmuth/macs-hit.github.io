@@ -28,7 +28,7 @@ const links = [
     icon: <GitHubIcon />,
   },
   {
-    label: "X",
+    label: "X (Twitter)",
     display: "x.com/MacsHitX",
     href: "https://x.com/MacsHitX",
     icon: <XIcon />,
@@ -44,34 +44,38 @@ const links = [
 export default function AboutPage() {
   return (
     <div className="page">
-      <div className="container">
-        {/* Header */}
+      <div className="container-mid">
         <Reveal>
           <header className="page-header">
-            <p className="page-eyebrow">Operator</p>
+            <p className="page-eyebrow">Operator & Platform</p>
             <h1 className="page-title">Kenneth Helmuth</h1>
+            <p className="page-subtitle">
+              Independent cyber threat intelligence researcher. Tracking malware, threat actors, and infrastructure.
+            </p>
           </header>
         </Reveal>
 
-        {/* Bio */}
-        <Reveal delay={100}>
-          <div style={{ marginBottom: 80 }}>
+        {/* Bio Card */}
+        <Reveal delay={80}>
+          <div className="dossier-card" style={{ marginBottom: "2rem" }}>
+            <h2 className="dossier-name" style={{ marginBottom: "1rem" }}>
+              Research Mission
+            </h2>
             <p className="about-bio">
-              CTI researcher. <strong>MACS-HIT</strong> is an independent
-              research platform — not affiliated with any vendor, employer,
-              or organization.
+              <strong>MACS-HIT</strong> is an independent CTI research platform — not affiliated with any vendor, employer, or commercial organization.
             </p>
-            <p className="about-bio">
-              Research is published when it is ready and defensible.
-              Attribution assessments carry inherent uncertainty and should
-              be treated as such.
+            <p className="about-bio" style={{ marginBottom: 0 }}>
+              All findings are published when investigations are complete, defensible, and grounded in observable artifacts. Attribution assessments carry inherent analytical uncertainty and are documented with clear evidentiary thresholds.
             </p>
           </div>
         </Reveal>
 
-        {/* Links */}
-        <Reveal delay={180}>
-          <div style={{ marginBottom: 80 }}>
+        {/* Links Card */}
+        <Reveal delay={160}>
+          <div className="dossier-card" style={{ marginBottom: "2rem" }}>
+            <h2 className="dossier-name" style={{ marginBottom: "1rem" }}>
+              Profiles & Channels
+            </h2>
             {links.map(({ label, display, href, icon }) => (
               <a
                 key={label}
@@ -94,16 +98,14 @@ export default function AboutPage() {
         <Reveal delay={240}>
           <p
             style={{
-              fontSize: "0.82rem",
+              fontSize: "0.85rem",
               color: "var(--text-3)",
-              lineHeight: 1.65,
-              maxWidth: 440,
-              letterSpacing: "-0.005em",
+              lineHeight: 1.6,
+              textAlign: "center",
+              marginTop: "2rem",
             }}
           >
-            All content published on this platform is for educational and
-            defensive purposes. Do not take action based solely on material
-            published here.
+            All content published on this platform is for educational and defensive purposes.
           </p>
         </Reveal>
       </div>

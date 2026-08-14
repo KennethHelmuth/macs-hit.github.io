@@ -9,7 +9,7 @@ const tools = [
       "Interactive TUI for blockchain wallet analysis. Track wallets, map transaction history, detect linked addresses across BTC, ETH, USDT, SOL and BNB. Built for CTI analysts.",
     url: "https://github.com/KennethHelmuth/chaintrack",
     language: "Rust",
-    badge: "Open Source",
+    badge: "Interactive TUI",
   },
   {
     name: "IOC Triage",
@@ -22,18 +22,18 @@ const tools = [
   {
     name: "JS Deobfuscator",
     description:
-      "Production-ready CLI tool for purely static JavaScript deobfuscation using Babel AST transformations. Safely unpacks, deobfuscates, and linearizes obfuscated scripts (defeating control flow flattening, proxy functions, and string array encoding) without execution.",
+      "Production-ready CLI tool for purely static JavaScript deobfuscation using Babel AST transformations. Safely unpacks, deobfuscates, and linearizes obfuscated scripts without execution.",
     url: "https://github.com/KennethHelmuth/JS-Deobfuscator",
     language: "JavaScript",
-    badge: "Open Source",
+    badge: "Babel AST",
   },
   {
     name: "Security Analysis Helper Toolkit",
     description:
-      "Collection of lightweight, standalone Python CLI utilities for safe malware sample handling, static analysis, defensive archive unpacking (zip bomb & traversal protected), and automated audit logging in DFIR and CTI lab environments.",
+      "Collection of lightweight, standalone Python CLI utilities for safe malware sample handling, static analysis, defensive archive unpacking, and automated audit logging in lab environments.",
     url: "https://github.com/KennethHelmuth/Security-Analysis-Helper-Toolkit",
     language: "Python",
-    badge: "Open Source",
+    badge: "DFIR Utilities",
   },
   {
     name: "Pivot Chains",
@@ -41,68 +41,78 @@ const tools = [
       "Visual reference and playbooks mapping 33 distinct Indicator of Compromise (IOC) types to full pivot chains, detailing specific CTI and OSINT toolchains across 6 core analytical domains.",
     url: "https://github.com/KennethHelmuth/Pivot-chains",
     language: "OSINT / CTI",
-    badge: "Reference",
+    badge: "Reference Playbook",
   },
 ];
 
 export default function ToolsPage() {
   return (
     <div className="page">
-      <div className="container">
+      <div className="container-wide">
         <Reveal>
           <header className="page-header">
-            <p className="page-eyebrow">Open Source</p>
+            <p className="page-eyebrow">Open Source Tooling</p>
             <h1 className="page-title">Tools</h1>
+            <p className="page-subtitle">
+              Interactive utilities and triage suites built for threat analysts, malware researchers, and SOC operators.
+            </p>
           </header>
         </Reveal>
 
-        <div>
+        <div className="tools-grid">
           {tools.map((tool, i) => (
-            <Reveal key={tool.name} delay={i * 80}>
-              <div className="tool-item">
-                <div className="tool-header">
-                  <a
-                    href={tool.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tool-name"
-                  >
-                    {tool.name}
-                  </a>
-                  <div className="tool-meta">
-                    {tool.language && <span className="tool-lang">{tool.language}</span>}
-                    {tool.badge && <span className="tool-badge">{tool.badge}</span>}
-                  </div>
+            <Reveal key={tool.name} delay={i * 60}>
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tool-card"
+              >
+                <div className="tool-card-head">
+                  <h2 className="tool-card-name">{tool.name}</h2>
+                  <span className="tool-card-lang">{tool.language}</span>
                 </div>
-                <p className="tool-repo">
-                  {tool.url.replace("https://", "")}
-                </p>
-                <p className="tool-desc">{tool.description}</p>
-              </div>
+                <p className="tool-card-desc">{tool.description}</p>
+                <div className="tool-card-foot">
+                  <span className="tool-card-badge">{tool.badge}</span>
+                  <span className="tool-card-arrow">
+                    GitHub
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={240}>
-          <div style={{ marginTop: 56 }}>
+          <div style={{ marginTop: "3.5rem", textAlign: "center" }}>
             <a
               href="https://github.com/kennethhelmuth"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontSize: "0.9rem",
-                color: "var(--text-3)",
-                letterSpacing: "-0.01em",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.color = "var(--text)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.color = "var(--text-3)")
-              }
+              className="apple-link-btn"
             >
-              All repositories &rarr;
+              <span>View all repositories on GitHub</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
         </Reveal>

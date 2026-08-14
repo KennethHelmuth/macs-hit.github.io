@@ -25,6 +25,15 @@ function optimizeMediumImageUrl(url: string, targetWidth = 720): string {
 }
 
 const REPORT_OVERRIDES: Record<string, Partial<ReportItem>> = {
+  "clickfix-delivered-stealc-overlordrat": {
+    title: "ClickFix-Delivered Stealc/OverlordRAT Campaign: Technical Analysis and Infrastructure Attribution",
+    link: "https://medium.com/@Real-macs_hit/clickfix-delivered-stealc-overlordrat-campaign-technical-analysis-and-infrastructure-attribution-a6c6e7f8d9b0",
+    tlp: "CLEAR",
+    tags: ["Stealc", "OverlordRAT", "ClickFix", "Threat Intelligence", "Reverse Engineering", "C2 Infrastructure"],
+    description: "Technical analysis and infrastructure attribution of a ClickFix-delivered campaign deploying Stealc InfoStealer and OverlordRAT. Case Reference: CASE-2026–08-CLICKFIX-STEALC.",
+    pubDate: "August 13, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Qu5hUZlI_QtPkD7xtsfFQQ.png",
+  },
   "same-wallet-two-domains": {
     link: "https://medium.com/@Real-macs_hit/same-wallet-two-domains-tracking-a-serial-crypto-scam-operator-on-bulletproof-infrastructure-ff122c822c13",
     tlp: "WHITE",
@@ -344,11 +353,14 @@ export default async function ReportsPage() {
 
   return (
     <div className="page">
-      <div className="container-mid">
+      <div className="container-wide">
         <Reveal>
           <header className="page-header">
             <p className="page-eyebrow">Intelligence Reports</p>
             <h1 className="page-title">Reports</h1>
+            <p className="page-subtitle">
+              Technical analysis of malware campaigns, adversary infrastructure, and supply chain operations.
+            </p>
           </header>
         </Reveal>
 

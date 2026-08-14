@@ -9,22 +9,26 @@ export const metadata: Metadata = {
 const categories = [
   {
     title: "IOCs",
-    description: "Indicators of compromise including domains, IPs, hashes and URLs.",
+    description:
+      "Indicators of compromise including malicious domains, C2 IPs, cryptographic file hashes, and active payload URLs.",
     url: "https://github.com/KennethHelmuth/threat-intelligence/tree/main/IOCs",
   },
   {
     title: "YARA Rules",
-    description: "Detection rules for malware identification and hunting.",
+    description:
+      "Precision detection rules for malware identification, binary string matching, and hunting active implants.",
     url: "https://github.com/KennethHelmuth/threat-intelligence/tree/main/YARA",
   },
   {
     title: "Sigma Rules",
-    description: "Generic signature format for SIEM detection rules.",
+    description:
+      "Generic signature format for SIEM detection rules targeting adversary tactics, techniques, and procedures (TTPs).",
     url: "https://github.com/KennethHelmuth/threat-intelligence/tree/main/Sigma",
   },
   {
     title: "Reports",
-    description: "Index of published threat intelligence reports.",
+    description:
+      "Index of published threat intelligence technical reports, incident breakdowns, and campaign analyses.",
     url: "https://github.com/KennethHelmuth/threat-intelligence/tree/main/Reports",
   },
 ];
@@ -32,11 +36,14 @@ const categories = [
 export default function IntelligencePage() {
   return (
     <div className="page">
-      <div className="container-mid">
+      <div className="container-wide">
         <Reveal>
           <header className="page-header">
             <p className="page-eyebrow">Data Repository</p>
             <h1 className="page-title">Intelligence</h1>
+            <p className="page-subtitle">
+              Publicly available indicators of compromise, hunting signatures, and defensive rules.
+            </p>
           </header>
         </Reveal>
 
@@ -52,7 +59,17 @@ export default function IntelligencePage() {
                 <h2 className="intel-card-title">{cat.title}</h2>
                 <p className="intel-card-desc">{cat.description}</p>
                 <span className="intel-card-link">
-                  Browse Files <span>→</span>
+                  Browse Files
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </span>
               </a>
             </Reveal>
@@ -60,14 +77,24 @@ export default function IntelligencePage() {
         </div>
 
         <Reveal delay={320}>
-          <div style={{ display: "flex", justifyContent: "center", marginTop: 40 }}>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "3.5rem" }}>
             <a
               href="https://github.com/KennethHelmuth/threat-intelligence"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary"
+              className="apple-link-btn"
             >
-              View Full Repository
+              <span>View full repository on GitHub</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
         </Reveal>

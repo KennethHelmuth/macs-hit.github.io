@@ -4,16 +4,11 @@ import React, { useEffect, useRef } from "react";
 
 interface RevealProps {
   children: React.ReactNode;
-  delay?: number;        // ms — stagger offset
+  delay?: number;
   className?: string;
   as?: React.ElementType;
 }
 
-/**
- * Wraps children in a div that fades + slides up when it enters
- * the viewport. Uses IntersectionObserver — zero layout thrash,
- * smooth 60fps via CSS transitions.
- */
 export default function Reveal({
   children,
   delay = 0,
@@ -26,7 +21,6 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    // If user prefers reduced motion, skip animation
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) {
       el.classList.add("is-visible");
@@ -36,13 +30,10 @@ export default function Reveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Apply stagger delay at reveal time, not at render time,
-          // so CSS transition-delay only runs during the actual animation.
           if (delay > 0) {
             el.style.transitionDelay = `${delay}ms`;
           }
           el.classList.add("is-visible");
-          // Clean up delay after animation settles
           const timer = setTimeout(() => {
             el.style.transitionDelay = "";
           }, delay + 800);
@@ -51,8 +42,8 @@ export default function Reveal({
         }
       },
       {
-        threshold: 0.08,
-        rootMargin: "0px 0px -48px 0px",
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px",
       }
     );
 
@@ -61,7 +52,7 @@ export default function Reveal({
   }, [delay]);
 
   return (
-    <Tag ref={ref} className={`reveal${className ? ` ${className}` : ""}`}>
+    <Tag ref={ref} className={`apple-reveal${className ? ` ${className}` : ""}`}>
       {children}
     </Tag>
   );

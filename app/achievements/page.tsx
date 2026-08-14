@@ -34,12 +34,15 @@ export default function AchievementsPage() {
 
   return (
     <div className="page">
-      <div className="container-mid">
+      <div className="container-wide">
         {/* Header */}
         <Reveal>
           <header className="page-header" style={{ marginBottom: 48 }}>
             <p className="page-eyebrow">Track Record & Validations</p>
             <h1 className="page-title">Achievements</h1>
+            <p className="page-subtitle">
+              Public bug bounty validations, responsible vulnerability disclosures, and certified research milestones.
+            </p>
           </header>
         </Reveal>
 

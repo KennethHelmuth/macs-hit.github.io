@@ -17,6 +17,12 @@ interface DossierEntry {
 async function getEntries(): Promise<DossierEntry[]> {
   return [
     {
+      name: "ClickFix Stealc / OverlordRAT Threat Cluster",
+      infrastructure: "ClickFix Social Engineering / SOCKS5 Overlord Mesh",
+      campaigns: ["CASE-2026-08-CLICKFIX-STEALC", "Stealc InfoStealer Delivery", "OverlordRAT Multi-Stage Staging", "In-Memory PowerShell Execution"],
+      reportUrl: "https://medium.com/@Real-macs_hit",
+    },
+    {
       name: "Unnamed Crypto Giveaway Operator",
       infrastructure: "AS26383/Baxet Group",
       campaigns: ["elon2x.com", "xcoinwallet.net"],
@@ -84,65 +90,67 @@ export default async function DossierPage() {
 
   return (
     <div className="page">
-      <div className="container-mid">
+      <div className="container-wide">
         <Reveal>
           <header className="page-header">
             <p className="page-eyebrow">Investigation Tracker</p>
             <h1 className="page-title">Dossier</h1>
+            <p className="page-subtitle">
+              Threat actor profiles, infrastructure clusters, and campaign correlation playbooks.
+            </p>
           </header>
         </Reveal>
 
-        {entries.length === 0 ? (
-          <Reveal delay={120}>
-            <div className="empty">
-              <p className="empty-headline">No investigations published yet.</p>
-              <p className="empty-sub">
-                Profiles and actor trackers will appear here as research develops.
-              </p>
-            </div>
-          </Reveal>
-        ) : (
-          <div className="dossier-grid">
-            {entries.map((entry, index) => (
-              <Reveal key={entry.name} delay={100 + index * 80}>
-                <a
-                  href={entry.reportUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-card"
-                >
-                  <div className="dossier-header">
-                    <h2 className="dossier-name">{entry.name}</h2>
+        <div className="dossier-grid">
+          {entries.map((entry, index) => (
+            <Reveal key={entry.name} delay={index * 50}>
+              <a
+                href={entry.reportUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dossier-card"
+              >
+                <div className="dossier-header">
+                  <h2 className="dossier-name">{entry.name}</h2>
+                </div>
+
+                <div className="dossier-details">
+                  <div className="dossier-detail-group">
+                    <span className="dossier-label">Infrastructure</span>
+                    <span className="dossier-value">{entry.infrastructure}</span>
                   </div>
 
-                  <div className="dossier-details">
-                    <div className="dossier-detail-group">
-                      <span className="dossier-label">Infrastructure</span>
-                      <span className="dossier-value">{entry.infrastructure}</span>
-                    </div>
-
-                    <div className="dossier-detail-group">
-                      <span className="dossier-label">Campaigns</span>
-                      <div className="dossier-campaigns">
-                        {entry.campaigns.map((camp) => (
-                          <span key={camp} className="dossier-campaign">
-                            {camp}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="dossier-detail-group">
+                    <span className="dossier-label">Campaigns</span>
+                    <div className="dossier-campaigns">
+                      {entry.campaigns.map((camp) => (
+                        <span key={camp} className="dossier-campaign">
+                          {camp}
+                        </span>
+                      ))}
                     </div>
                   </div>
+                </div>
 
-                  {entry.reportUrl && (
-                    <span className="dossier-card-link">
-                      Read Investigation Report <span>→</span>
-                    </span>
-                  )}
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        )}
+                {entry.reportUrl && (
+                  <span className="dossier-card-link">
+                    Read Investigation Report
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                )}
+              </a>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </div>
   );
