@@ -308,7 +308,7 @@ button {
   transform: translateY(-3.4px) rotate(-45deg);
 }
 
-/* Full-Screen Glass Mobile Drawer */
+/* Full-Screen Pure Black Mobile Drawer */
 .apple-mobile-menu {
   position: fixed;
   top: 52px;
@@ -316,16 +316,14 @@ button {
   right: 0;
   bottom: 0;
   height: calc(100dvh - 52px);
-  background: rgba(0, 0, 0, 0.96);
-  backdrop-filter: blur(36px) saturate(180%);
-  -webkit-backdrop-filter: blur(36px) saturate(180%);
-  border-bottom: 1px solid var(--border);
+  background: #000000;
+  border-top: 1px solid var(--border);
   z-index: 99;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   overflow-y: auto;
-  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth);
+  transition: opacity 0.25s var(--ease-smooth), transform 0.25s var(--ease-smooth);
 }
 
 .apple-mobile-menu.is-open {
@@ -335,60 +333,70 @@ button {
 }
 
 .apple-mobile-menu-inner {
+  max-width: 600px;
+  margin: 0 auto;
   min-height: 100%;
-  padding: 1.5rem 1.5rem 3rem;
+  padding: 24px 24px 48px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
 }
 
+.apple-mobile-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
 .apple-mobile-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border-subtle);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #a1a1a6;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
 .apple-mobile-link:hover,
 .apple-mobile-link.active {
   color: #ffffff;
-  padding-left: 4px;
+  padding-left: 6px;
 }
 
 .apple-mobile-arrow {
-  color: var(--text-tertiary);
+  color: #6e6e73;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .apple-mobile-link:hover .apple-mobile-arrow,
 .apple-mobile-link.active .apple-mobile-arrow {
-  color: #ffffff;
+  color: #2997ff;
   transform: translateX(4px);
 }
 
 .apple-mobile-footer {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   padding-top: 2rem;
-  border-top: 1px solid var(--border-subtle);
-  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 3rem;
 }
 
 .apple-mobile-sublink {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #86868b;
   transition: color 0.2s ease;
 }
 
 .apple-mobile-sublink:hover {
-  color: var(--apple-blue);
+  color: #2997ff;
 }
 
 @media (max-width: 640px) {

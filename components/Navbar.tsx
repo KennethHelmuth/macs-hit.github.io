@@ -93,11 +93,11 @@ export default function Navbar() {
           <div className="apple-nav-right">
             <SpotlightCommand />
 
-            <Link href="/reports" className="apple-nav-btn hidden sm:inline-flex">
+            <Link href="/reports" className="apple-nav-btn hidden md:inline-flex">
               Research
             </Link>
 
-            {/* Mobile Hamburger Toggle Button (44x44px touch target) */}
+            {/* Mobile Hamburger / Close Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`apple-burger-btn ${mobileMenuOpen ? "open" : ""}`}
@@ -111,14 +111,14 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Apple-grade Full-Screen Mobile Drawer */}
+      {/* Full-Screen Pure Black Apple Mobile Drawer */}
       <div
         className={`apple-mobile-menu ${mobileMenuOpen ? "is-open" : ""}`}
         aria-hidden={!mobileMenuOpen}
       >
-        <div className="apple-mobile-menu-inner container">
+        <div className="apple-mobile-menu-inner">
           {/* Mobile Nav Links */}
-          <div className="flex flex-col gap-1 w-full">
+          <div className="apple-mobile-links-container">
             {links.map(({ href, label }) => {
               const active =
                 pathname === href || (href !== "/" && pathname.startsWith(href));
@@ -131,8 +131,8 @@ export default function Navbar() {
                 >
                   <span>{label}</span>
                   <svg
-                    width="14"
-                    height="14"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
