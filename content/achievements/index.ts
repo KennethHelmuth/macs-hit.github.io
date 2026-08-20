@@ -1,4 +1,5 @@
 import zabbixBugBounty from "./zabbix-bug-bounty/index.json";
+import arcxCti101 from "./arcx-cti-101/index.json";
 
 export interface AchievementProof {
   organization?: string;
@@ -29,6 +30,7 @@ export interface Achievement {
 }
 
 export const ACHIEVEMENTS: Achievement[] = [
+  arcxCti101,
   zabbixBugBounty,
 ];
 
