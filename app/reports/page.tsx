@@ -25,6 +25,15 @@ function optimizeMediumImageUrl(url: string, targetWidth = 720): string {
 }
 
 const REPORT_OVERRIDES: Record<string, Partial<ReportItem>> = {
+  "deconstructing-majinahanashi-ransomware": {
+    title: "“We Entered. We Looked Around. We Took What Was There”: Deconstructing Majinahanashi Ransomware",
+    link: "https://medium.com/@Real-macs_hit/we-entered-we-looked-around-we-took-what-was-there-deconstructing-majinahanashi-ransomware-1367f4b0c952",
+    tlp: "CLEAR",
+    tags: ["Ransomware", "Majinahanashi", "Reverse Engineering", "Threat Intelligence", "Double Extortion", "Tor Infrastructure"],
+    description: "Technical analysis and forensic deconstruction of the Majinahanashi ransomware operation, reverse-engineering custom C++ encryptor mechanics, anti-recovery automation, and multi-onion Tor infrastructure.",
+    pubDate: "August 30, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Ki6NxZT1vGg57MvI7ggeqg.png",
+  },
   "clickfix-delivered-stealc-overlordrat": {
     title: "ClickFix-Delivered Stealc/OverlordRAT Campaign: Technical Analysis and Infrastructure Attribution",
     link: "https://medium.com/@Real-macs_hit/clickfix-delivered-stealc-overlordrat-campaign-technical-analysis-and-infrastructure-attribution-a6c6e7f8d9b0",
@@ -129,6 +138,24 @@ const REPORT_OVERRIDES: Record<string, Partial<ReportItem>> = {
 };
 
 const FALLBACK_REPORTS: ReportItem[] = [
+  {
+    title: "“We Entered. We Looked Around. We Took What Was There”: Deconstructing Majinahanashi Ransomware",
+    link: "https://medium.com/@Real-macs_hit/we-entered-we-looked-around-we-took-what-was-there-deconstructing-majinahanashi-ransomware-1367f4b0c952",
+    pubDate: "August 30, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Ki6NxZT1vGg57MvI7ggeqg.png",
+    description: "Technical analysis and forensic deconstruction of the Majinahanashi ransomware operation, reverse-engineering custom C++ encryptor mechanics, anti-recovery automation, and multi-onion Tor infrastructure.",
+    tlp: "CLEAR",
+    tags: ["Ransomware", "Majinahanashi", "Reverse Engineering", "Threat Intelligence", "Double Extortion", "Tor Infrastructure"],
+  },
+  {
+    title: "ClickFix-Delivered Stealc/OverlordRAT Campaign: Technical Analysis and Infrastructure Attribution",
+    link: "https://medium.com/@Real-macs_hit/clickfix-delivered-stealc-overlordrat-campaign-technical-analysis-and-infrastructure-attribution-a6c6e7f8d9b0",
+    pubDate: "August 13, 2026",
+    thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Qu5hUZlI_QtPkD7xtsfFQQ.png",
+    description: "Technical analysis and infrastructure attribution of a ClickFix-delivered campaign deploying Stealc InfoStealer and OverlordRAT. Case Reference: CASE-2026–08-CLICKFIX-STEALC.",
+    tlp: "CLEAR",
+    tags: ["Stealc", "OverlordRAT", "ClickFix", "Threat Intelligence", "Reverse Engineering", "C2 Infrastructure"],
+  },
   {
     title: "The 21-Month Blind Spot: Why DCRat is still Evading Enterprise Defenses in 2026",
     link: "https://medium.com/@Real-macs_hit/the-21-month-blind-spot-why-dcrat-is-still-evading-enterprise-defenses-in-2026-b79682925760",

@@ -17,6 +17,12 @@ interface DossierEntry {
 async function getEntries(): Promise<DossierEntry[]> {
   return [
     {
+      name: "Majinahanashi Ransomware Threat Cluster",
+      infrastructure: "Tor Hidden Services / Multi-Onion Storage Topology",
+      campaigns: ["CASE-2026-08-MAJINAHANASHI", "Double-Extortion DLS Operations", "Autonomous C++ Encryptor", "Anti-Recovery Automation"],
+      reportUrl: "https://medium.com/@Real-macs_hit/we-entered-we-looked-around-we-took-what-was-there-deconstructing-majinahanashi-ransomware-1367f4b0c952",
+    },
+    {
       name: "ClickFix Stealc / OverlordRAT Threat Cluster",
       infrastructure: "ClickFix Social Engineering / SOCKS5 Overlord Mesh",
       campaigns: ["CASE-2026-08-CLICKFIX-STEALC", "Stealc InfoStealer Delivery", "OverlordRAT Multi-Stage Staging", "In-Memory PowerShell Execution"],
