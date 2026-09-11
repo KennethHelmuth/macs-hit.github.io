@@ -36,7 +36,7 @@ const REPORT_OVERRIDES: Record<string, Partial<ReportItem>> = {
   },
   "clickfix-delivered-stealc-overlordrat": {
     title: "ClickFix-Delivered Stealc/OverlordRAT Campaign: Technical Analysis and Infrastructure Attribution",
-    link: "https://medium.com/@Real-macs_hit/clickfix-delivered-stealc-overlordrat-campaign-technical-analysis-and-infrastructure-attribution-a6c6e7f8d9b0",
+    link: "https://medium.com/the-malware-files/clickfix-delivered-stealc-overlordrat-campaign-c76ed2143983",
     tlp: "CLEAR",
     tags: ["Stealc", "OverlordRAT", "ClickFix", "Threat Intelligence", "Reverse Engineering", "C2 Infrastructure"],
     description: "Technical analysis and infrastructure attribution of a ClickFix-delivered campaign deploying Stealc InfoStealer and OverlordRAT. Case Reference: CASE-2026–08-CLICKFIX-STEALC.",
@@ -149,7 +149,7 @@ const FALLBACK_REPORTS: ReportItem[] = [
   },
   {
     title: "ClickFix-Delivered Stealc/OverlordRAT Campaign: Technical Analysis and Infrastructure Attribution",
-    link: "https://medium.com/@Real-macs_hit/clickfix-delivered-stealc-overlordrat-campaign-technical-analysis-and-infrastructure-attribution-a6c6e7f8d9b0",
+    link: "https://medium.com/the-malware-files/clickfix-delivered-stealc-overlordrat-campaign-c76ed2143983",
     pubDate: "August 13, 2026",
     thumbnail: "https://miro.medium.com/v2/resize:fit:720/1*Qu5hUZlI_QtPkD7xtsfFQQ.png",
     description: "Technical analysis and infrastructure attribution of a ClickFix-delivered campaign deploying Stealc InfoStealer and OverlordRAT. Case Reference: CASE-2026–08-CLICKFIX-STEALC.",
